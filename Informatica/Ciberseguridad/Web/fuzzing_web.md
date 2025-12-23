@@ -36,13 +36,13 @@ dicho, esconder resultados con una respuesta HTTP = 404 (not
 found) mediante el argumento --hc=404.
 
 **CONTENT DISCOVERY DE DIRECTORIOS CON DIRBUSTER**
-![dirbuster1](../../../Imagenes/dirbuster1.jpg)
+![dirbuster1](../../../Imagenes/dirbuster1.png)
 Dirbuster es muy sencillo, escribimos la URL a la que queremos
 realizar el content discovery en el apartado *Target URL*,
 especificando el protocolo y el puerto.  Luego hemos de
 especificar el diccionario a utilizar en el apartado *File with
 list of dirs/files*.
-![dirbuster2](../../../Imagenes/dirbuster2.jpg)
+![dirbuster2](../../../Imagenes/dirbuster2.png)
 Deberemos seleccionar la opción *Brute Force Dirs*.
 Podremos escoger desde que directorio comenzar en *Dir to start with*
 
