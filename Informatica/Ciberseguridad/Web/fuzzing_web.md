@@ -50,9 +50,9 @@ Podremos escoger desde que directorio comenzar en *Dir to start with*
 Seclist Discovery Web-Content: https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content
 
 Instalación rápida: 
-´´´bash
+```bash
 sudo apt install -y seclist
-´´´
+```
 
 
 ## SUBDOMAIN DISCOVERY
