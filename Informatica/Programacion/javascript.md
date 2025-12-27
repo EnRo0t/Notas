@@ -36,6 +36,7 @@ for(i = 0; i < lista_frutas.length; i++) {
 }
 ```
 **Recorrer un array con un forEach (ideal)**
+
 ForEach lo que va a hacer es ejecutar algo por cada elemento del array.
 ```js
 lista_frutas.forEach(function(fruta) {
@@ -205,6 +206,67 @@ Si la condución es true el valor es val1 sino es val2.
 
 ```js
 var status = age >= 18 ? "adult" : "minor";
+```
+
+### BUCLES
+**Bucle FOR**
+El bucle for itera sobre un indice, en el caso de ejemplo a cada iteración i + 1, hasta llegar a 100. 
+```js
+for(i = 0; i < 100; i++) {
+    //Ejecuta esto
+}
+```
+
+**Bucle While**
+El bucle while se repite hasta que la condición deje de ser cierta. 
+```js
+while(condicion) {
+    //Ejecuta esto
+}
+```
+
+### ENTRADAS DE USUARIO
+Puedes pedir al usuario que introduzca un valor con prompt:
+```js
+let nombre = prompt("Introduce tu nombre");
+```
+
+### VALIDACIONES DE ENTRADAS
+**Validar que se trata de un número**
+Para ello tenemos isNaN (is not a number)
+```js
+let numero = prompt("Introduce un número");
+if(isNaN) {
+    console.log("El valor introducido no es un número");
+} else {
+    console.log("Si se trata de un número");
+}
+```
+**Validar que un string no esta vacio o es nulo**
+```js
+let nombre = prompt("Introduce tu nombre");
+if(nombre === null || nombre.trim() === ""){
+    console.log("El valor esta vacio o es nulo");
+} else {
+    console.log("El valor es correcto");
+}
+```
+
+### CONVERSION DE TIPOS
+**Convertir String a Number**
+```js
+let palabra = "Armario";
+let numero = "123";
+
+Number(palabra); //Esto se convienrte en NaN
+Number(numero); //Esto se convierte en 123
+```
+
+### TRATAMIENTO STRINGS
+**Eliminar espacios**
+```js
+let ejemplo = "ejemplo ";
+console.log(ejemplo.trim()); //Devuelve la palabra sin espacio al final.
 ```
 
 
