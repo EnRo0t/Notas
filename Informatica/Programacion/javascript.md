@@ -917,16 +917,16 @@ Ahora que sabemos como seleccionar elementos, vamos a modificarlos.
 
 **Cambiar el texto de un elemento (borra el contenido anterior)**
 
-´´´js
+```js
 const elemento = document.getElementById('mi-elemento');
 elemento.textContent = 'Nuevo contenido de texto';
-´´´
+```
 
 **Cambiar contenido del html completo**
-´´´js
+```js
 const elemento = document.getElementById('mi-elemento');
 elemento.innerHTML = '<strong>Texto en negrita</strong>';
-´´´
+```
 
 **Cambiar el texto visible**
 ```js
@@ -935,7 +935,8 @@ elemento.innerText = 'Nuevo contenido de texto';
 ```
 **Cambiar un valor en un formulario**
 
-Se usa en: <input>, <textarea>, <select>
+Se usa en: \<input\>, \<textarea\>, \<select\>
+
 html:
 ```html
 <input type="text" id="nombre">
