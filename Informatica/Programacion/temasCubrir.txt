@@ -1,0 +1,106 @@
+📂 DOM – Orden recomendado de contenidos
+1️⃣ ¿Qué es el DOM?
+
+(ya lo tienes 👍)
+
+Definición
+
+Relación HTML ↔ JS
+
+2️⃣ Selección de elementos del DOM
+
+👉 Aquí es donde empiezas a “llamar” al HTML
+
+Métodos principales
+
+document.getElementById()
+
+document.getElementsByClassName()
+
+document.getElementsByTagName()
+
+document.querySelector()
+
+document.querySelectorAll()
+
+Notas importantes
+
+Diferencia entre uno y varios elementos
+
+HTMLCollection vs NodeList
+
+Índices ([0])
+
+3️⃣ Modificar elementos del DOM
+
+Una vez seleccionados, ¿qué puedes hacer con ellos?
+
+textContent
+
+innerHTML
+
+innerText
+
+value
+
+classList.add / remove / toggle
+
+style
+
+4️⃣ Eventos
+
+👉 Lo que hace la página interactiva
+
+¿Qué es un evento?
+
+onclick vs addEventListener
+
+Eventos más comunes:
+
+click
+
+submit
+
+input
+
+change
+
+keydown
+
+Objeto event
+
+preventDefault()
+
+5️⃣ Crear y eliminar elementos
+
+Manipulación dinámica del DOM
+
+createElement()
+
+appendChild()
+
+append()
+
+remove()
+
+removeChild()
+
+6️⃣ Formularios y DOM
+
+Obtener valores (input.value)
+
+Validaciones
+
+Eventos de formularios
+
+Mostrar errores en el DOM
+
+7️⃣ Buenas prácticas con el DOM
+
+Guardar selecciones en variables
+
+No abusar de innerHTML
+
+Separar lógica y vista
+
+Usar addEventListener

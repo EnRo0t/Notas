@@ -997,10 +997,229 @@ Apunte sobre buenas prácticas: Style se usa para cambios pequeños, para cambio
 grandes mejor utilizar classList.
 
 ### EVENTOS
+Los eventos son cosas que suceden en el sistema que estas programando. Js puede
+capturar dichos eventos y ejercer acciones en consecuencia.
+Un ejemplo claro de evento sería el que sucede cuando un usuario presiona un
+botón en un HTML. Con Js podemos "capturar" dicho evento mediante un listener y
+devolver una acción.
+
+**Eventos frecuentes**
+
+Hay demasiados eventos para nombrarlos todos aquí, pero estos son los más habituales:
+
+|nombre           |tipo         |descripción                                   |
+|:---------------:|:-----------:|:--------------------------------------------:|
+|click            |ratón        |Cuando se hace clic                           |
+|dblclick         |ratón        |Doble clic                                    |
+|mousedown        |ratón        |Botón presionado                              |
+|mouseup          |ratón        |Botón liberado                                |
+|mousemove        |ratón        |Movimiento del mouse                          |
+|mouseover        |ratón        |El mouse entra en un elemento                 |
+|mouseout         |ratón        |El mouse sale del elemento                    |
+|mouseenter       |ratón        |El mouse entra al elemento (no se propaga)    |
+|mouseleave       |ratón        |El mouse sale del elemento (no se propaga)    |
+|                 |             |                                              |
+|keydown          |teclado      |Tecla presionada                              |
+|keyup            |teclado      |Tecla liberada                                |
+|keypress         |teclado      |(obsoleto, no usar)                           |
+|                 |             |                                              |
+|submit           |formulario   |Envío de formulario                           |
+|change           |formulario   |Cambio de valor                               |
+|input            |formulario   |Mientras el usuario escribe                   |
+|focus            |formulario   |Cuando el elemento recibe foco                |
+|blur             |formulario   |Cuando pierde el foco                         |
+|reset            |formulario   |Reinicio del formulario                       |
+|                 |             |                                              |
+|load             |navegador    |Cuando la pagina termina de cargar            |
+|DOMContentLoader |navegador    |Cuando el HTML esta listo                     |
+|resize           |navegador    |Cambio de tamaño de la ventana                |
+|scroll           |navegador    |Desplazamiento de la página                   |
+|beforeunload     |navegador    |Antes de salir de la página                   |
+
+**Capturar eventos**
+
+Para capturar eventos podemos utilizar el listener addEventListener.
+La sintaxis es:
+```js
+elemento.addEventListener("nombre_evento",funcion);
+```
+Ejemplo:
+```js
+//Vamos a suponer que en el html hay un botón con el id botón
+const btn = document.getElementById("botón"); //Seleccionamos dicho botón
+
+//Ahora capturamos el clic en el botón y ejecutamos la función cambiarFondo
+btn.addEventListener("click",cambiarFondo);
+
+//Creamos una función que cambiará el color del fondo
+function cambiarFondo() {
+    document.body.style.backgroundColor = "red";
+}
+```
+También puedes escribir la función directamente en la misma linea:
+```js
+btn.addEventListener("click",function() {
+    document.body.style.backgroundColor = "red";
+});
+```
+O utilizar la función flecha:
+```js
+btn.addEventListener("click", () => {
+    document.body.style.backgroundColor = "red";
+});
+```
+**Capturar eventos con on**
+
+addEventListener es la mejor manera de capturar eventos, pero no la única. Hay
+objetos (como botones) que tienen la propiedad *event handler* que les permite
+capturar eventos.
+ 
+Ejemplo:
+```js
+//Vamos a suponer que en el html hay un botón con el id botón
+const btn = document.getElementById("botón"); //Seleccionamos dicho botón
+
+//Ahora capturamos el clic en el botón y ejecutamos la función cambiarFondo
+btn.onclick = cambiarFondo;
+
+//Creamos una función que cambiará el color del fondo
+function cambiarFondo() {
+    document.body.style.backgroundColor = "red";
+}
+```
+
+**Objeto event**
+El objeto event, evt o e, es un objeto que hace referencia al propio evento. Se
+le puede pasar a una función para obtener características extra. 
+Un ejemplo clásico es el de poder utilizar target, que selecciona el elemento
+en sí que ha lanzado el evento. 
+
+Ejemplo:
+```js
+//Vamos a suponer que en el html hay un botón con el id botón
+const btn = document.getElementById("botón"); //Seleccionamos dicho botón
+
+//Ahora capturamos el clic en el botón y ejecutamos la función cambiarFondo
+btn.addEventListener("click",cambiarFondo);
+
+//Creamos una función que cambiará el color del fondo del elemento
+function cambiarFondo(e) {
+    e.target.style.backgroundColor = "red";
+}
+```
+Otra información extra que podemos obtener gracias a pasar el objeto event como
+parámetro de la función manejadora son:
+
++ e.currentTarget: Elemento que escucha el evento.
++ e.type: Tipo de evento (click, keydown, etc).
++ e.timeStamp: Momento en que ocurrió el evento.
++ e.clientX: Coordenada X dentro de la ventana.
++ e.clientY: Coordenada Y dentro de la ventana.
++ e.pageX: Coordenada X dentro de la página.
++ e.pageY: Coordenada Y dentro de la página.
++ e.button: Botón presionado (0 izquierdo, 1 rueda, 2 derecho).
++ e.key: Tecla presionada ("a", "Enter", "Escape").
++ e.code: Tecla presionada ("KeyA", "Enter").
++ e.preventDefault();: Previene el comportamiento por defecto en un formulario.
+  (Por ejemplo, evitar que se envie)
++ e.stopPropagation(): Detiene la propagación. 
 
 ### CREAR Y ELIMINAR ELEMENTOS
 
+**Crear elementos del DOM**
+
++ createElement: Crea un elemento, pero no lo agrega todavía.
+```js
+const p = document.createElement("p");
+```
+Añade contenido al elemento
+```js
+p.textContent = "Hola mundo";
+```
+
+**Insertar elementos en el DOM**
+
++ appendChild: Agrega el elemento al final del de otro
+```js
+document.body.appendChild(p);
+```
++ append(): Más moderno, permite texto y varios elementos.
+```js
+container.append(p, " texto extra");
+```
++ prepend(): Inserta el elemento al principio
+```js
+container.prepend(p);
+```
++ insertBefore(): Inserta antes de otro elemento hijo
+```js
+parent.insertBefore(nuevo, referencia);
+```
+
+**Eliminar elementos del DOM**
+
++ remove(): Elimina directamente un elemento
+```js
+p.remove();
+```
++ removeChild(): Elimina un hijo desde el padre
+```js
+parent.removeChild(p);
+```
+
+**Remplazar elementos**
+
++ replaceChild(): parent.replaceChild(nuevoElemento, elementoViejo);
+
 ### FORMULARIOS
+
+**Obtener valores de un formulario**
+
++ input.value: Permite acceder al valor que escribe el usuario
+```js
+const input = document.querySelector("#nombre");
+console.log(input.value); //Mostraría por consola el valor
+```
+Esto funciona también con textarea y select
+
+**Validaciones básicas**
+
+Comprobar si está vacio
+```js
+if(input.value === "") {
+    console.log("Campo vacío");
+}
+```
+
+Longitud mínima
+```js
+if(input.value.length < 3) {
+    console.log("Muy corto");
+}
+```
+
+**Mostrar errores en el DOM**
+
+Crear un mensaje de error
+```js
+const error = document.createElement("p");
+error.textContent = "El campo es obligatorio";
+error.style.color = "red";
+```
+
+Insertarlo en la página
+```js
+form.appendChild(error);
+```
+
+Evitar errores duplicados
+```js
+const errorExistente = document.querySelector(".error");
+if (!errorExistente) {
+  error.classList.add("error");
+  form.appendChild(error);
+}
+```
 
 ### BUENAS PRÁCTICAS
 
