@@ -105,6 +105,7 @@ console.log(lista_frutas.length);
 |Asignación suma          |x += y     |x = x + y       |
 |Asignación multiplicación|x \*= y    |x = x * y       |
 |Asignación división      |x /= y     |x = x / y       |
+
 Existen  muchos más pero menos frecuentes.
 
 ### OPERADORES ARITMETICOS
@@ -138,7 +139,7 @@ Existen  muchos más pero menos frecuentes.
 |OR (\|\|)                  |Se debe cumplir o una u otra condición       |expr1 \|\| expr2         |
 |NOT (!)                    |Se debe cumplir lo opuesto                   |!expr1                   |
 
-### OPERADORES DE CADENA
+### OPERADORES DE CADENA (concatenación)
 Podemos unir valores con '+'.
 Ej:
 ```js
@@ -218,6 +219,7 @@ var status = age >= 18 ? "adult" : "minor";
 
 ### BUCLES
 **Bucle FOR**
+
 El bucle for itera sobre un indice, en el caso de ejemplo a cada iteración i + 1, hasta llegar a 100. 
 ```js
 for(i = 0; i < 100; i++) {
@@ -226,6 +228,7 @@ for(i = 0; i < 100; i++) {
 ```
 
 **Bucle While**
+
 El bucle while se repite hasta que la condición deje de ser cierta. 
 ```js
 while(condicion) {
@@ -1089,6 +1092,7 @@ function cambiarFondo() {
 ```
 
 **Objeto event**
+
 El objeto event, evt o e, es un objeto que hace referencia al propio evento. Se
 le puede pasar a una función para obtener características extra. 
 Un ejemplo clásico es el de poder utilizar target, que selecciona el elemento
@@ -1221,5 +1225,4 @@ if (!errorExistente) {
 }
 ```
 
-### BUENAS PRÁCTICAS
 
