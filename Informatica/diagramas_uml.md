@@ -29,8 +29,10 @@ notación de (-) y (+), siendo estos privados y públicos respectivamente.
 
 En un diagrama de clases las clases se relacionan entre ellas.
 
-+ Asociación: Es una relación estructural entre clases que especifica que los
-  objetos de una clase están conectados con los objetos de otra clase.
++ Asociación 
+
+Es una relación estructural entre clases que especifica que los objetos de una
+clase están conectados con los objetos de otra clase.
 
 ![Diagrama3](../Imagenes/diagrama3.png)
 
@@ -73,6 +75,7 @@ Estos atributos de enlace, a su vez, pueden convertirse en clases, de tal manera
 ![Diagrama7](../Imagenes/diagrama7.png)
  
 + Agregación
+
 Es una asociación con más semántica. La relación entre clases es "está formado por".
 Se representa con un rombo en la parte que representa el compuesto.
 No hace falta darle un nombre a la relación.
@@ -98,6 +101,7 @@ Se asume que si eliminaramos Compañia, eliminariamos consecuentemente sus Depar
 
 
 + Especialización/Generalización
+
 Permite definir jerarquías de clases. La relación entre clases es "es un"
 (Herencia)
 Se representan mediante flechas triangulares que van de los hijos al padre o
@@ -116,7 +120,7 @@ etiquetas para definir si la relación es:
       definido todas las subclases
     + Disjunta/Dinámica: Excluyentes/ no excluyentes.
 
-![Diagrama10](../Imagenes/diagrama10.png)
+![Diagrama11](../Imagenes/diagrama10.png)
 
 Por ejemplo, en la imagen, por completa nos referimos a que se han especificado
 todas las subclases de Persona (Hombre, Mujer) y por disjunta estamos señalando
@@ -124,7 +128,8 @@ que un objeto de la clase Persona puede ser Hombre o Mujer, pero no ambas a la
 vez, es excluyente.
 
 
-![Diagrama11](../Imagenes/diagrama11.png)
+![Diagrama12](../Imagenes/diagrama11.png)
+
 Ejemplo completo. 
 
 ### DIAGRAMA DE CASOS DE USO
