@@ -2,6 +2,9 @@
 
 ## ¿QUÉ ES UML?
 
+### REFERENCIAS WEB
++ https://www.youtube.com/watch?v=orvAkFFWo5o
+
 ### DIAGRAMA DE CLASES
 Captura la estructura estática del sistema, mostrando las clases y las
 relaciones entre ellas.
@@ -120,7 +123,7 @@ etiquetas para definir si la relación es:
       definido todas las subclases
     + Disjunta/Dinámica: Excluyentes/ no excluyentes.
 
-![Diagrama11](../Imagenes/diagrama10.png)
+![Diagrama11](../Imagenes/diagrama11.png)
 
 Por ejemplo, en la imagen, por completa nos referimos a que se han especificado
 todas las subclases de Persona (Hombre, Mujer) y por disjunta estamos señalando
@@ -128,9 +131,83 @@ que un objeto de la clase Persona puede ser Hombre o Mujer, pero no ambas a la
 vez, es excluyente.
 
 
-![Diagrama12](../Imagenes/diagrama11.png)
+![Diagrama12](../Imagenes/diagrama12.png)
 
 Ejemplo completo. 
 
 ### DIAGRAMA DE CASOS DE USO
+Sirven para modelar el comportamiento de un sistema.
+Capturan los requisitos funcionales del sistema a desarrollar. 
+
+Se representan mediante un recuadro (el sistema) donde encapsulamos los
+requisitos o funcionalidades y fuera del recuadro se representan los actores
+(los que interactuan con el sistema).
+
+
+![Diagrama13](../Imagenes/diagrama13.png)
+
+En este ejemplo vemos un recuadro que representa el sistema, en este caso un
+restaurante.  Dentro del recuadro se representan las funcionalidades y/o
+necesidades del sistema.  Y fuera de este los actores que interactuan con el.
+
+Estos casos de uso se pueden describir mediante plantillas con lenguaje natural. 
+
+
+![Diagrama14](../Imagenes/diagrama14.png)
+
+Las relaciones entre casos de uso pueden ser:
+
++ Inclusión
+
+Un caso de uso A incluye a un caso de uso B, si una instancia (un objeto de) A
+puede realizar todos los eventos que aparecen descritos en B. 
+
+
+![Diagrama15](../Imagenes/diagrama15.png)
+
+En el ejemplo, Baja socio incluye a buscar socio. Esto significa que siempre
+que se ejecute Baja socio se tiene que ejecutar Buscar socio.  Esto se
+representa mediante una linea discontinua que une ambos casos de uso y la
+palabra \<\<include\>\>
+
+    
++ Extensión
+
+Un caso de uso B extiende a un caso de uso A, si en la descripción de A figura
+una condición cuyo cumplimiento origina la ejecución de todos los eventos que
+aparecen descritos en B.
+
+
+![Diagrama16](../Imagenes/diagrama16.png)
+
+En el ejemplo, el caso de uso Solicitar información adicional del cliente
+extiende a Evaluar solicitud de crédito solo cuando se cumpla una condición
+especifica. Dicha condición no se pone en el diagrama sino en la plantilla. 
+
+Por ejemplo: 
+
+
+![Diagrama17](../Imagenes/diagrama17.png)
+
+
+
++ Herencia
+
+La herencia es una especialización de casos de uso.  Un caso de uso B
+especializa a un caso de uso A, si el flujo de eventos de B es un refinamiento
+del flujo de eventos de A. 
+
+
+![Diagrama18](../Imagenes/diagrama18.png)
+
+En el ejemplo, Enviar solicitud de crédito personal y Enviar solicitud de
+crédito empresarial son especificaciones de un caso de uso más generalizado que
+es Enviar solicitud de crédito. 
+
+También se puede aplicar la herencia a los actores, donde un actor descendiente
+puede jugar todos los roles del actor antecesor. 
+
+
+![Diagrama19](../Imagenes/diagrama19.png)
+
 
