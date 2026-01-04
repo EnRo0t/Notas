@@ -266,6 +266,26 @@ Una vez que tenemos todos los cursos "filtrados" es decir, que son de ese admini
 Para saber si cumple dicha condición le preguntamos al curso.
 
 ### DIAGRAMA DE ACTIVIDADES
+Un diagrama de actividades representa en detalle las actividades que suceden en un caso de uso. 
+Si una actividad depende de una condición se representa con el nodo de decisión, que tiene forma de rombo.
  
+![Diagrama25](../Imagenes/diagrama25.png)
+
+Si dos o más actividades pueden realizarse simultaneamente, se representan con un fork y un join. Una linea.
+
+![Diagrama26](../Imagenes/diagrama26.png)
+
+Ejemplo sencillo de un recepcionista que recibe a un cliente en un hotel.
+
+![Diagrama27](../Imagenes/diagrama27.png)
+
+### DIAGRAMA DE ESTADO
+En el diagrama de estado se representan las etapas de un proyecto. 
+Por ejemplo, la instalación de un ascensor se vería de esta manera:
+ 
+![Diagrama28](../Imagenes/diagrama28.png)
+
+
+
 
 
