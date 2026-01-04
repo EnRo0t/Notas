@@ -4,6 +4,7 @@
 
 ### REFERENCIAS WEB
 + https://www.youtube.com/watch?v=orvAkFFWo5o
+
 ### DIAGRAMA DE CLASES
 Captura la estructura estática del sistema, mostrando las clases y las
 relaciones entre ellas.
@@ -74,6 +75,10 @@ Las relaciones en sí también pueden tener atributos. Estos son conocidos como
 **Atributos de enlace** 
 Estos atributos de enlace, a su vez, pueden convertirse en clases, de tal manera que pasan a llamarse **Clases de asociación**
 
+Un atributo de enlace (atributo de una relación / asociación) se pone
+cuando la información no pertenece a ninguna de las clases por
+separado, sino a la relación entre ellas.
+
 ![Diagrama7](../Imagenes/diagrama7.png)
  
 + Agregación
@@ -89,11 +94,15 @@ relación de agregación puesto que una Compañia esta FORMADA por 1..N (uno o
 varios) Departamentos, y el Departamento forma parte de 0..N (Ninguna o muchas)
 compañias. 
 
-Existen dos tipos de relaciones de agregación: 
-    + Agregación referencial: Los componentes son reutilizbles por distintos
-      compuestos.
-    + Agregación inclusiva: Un componente sólo puede pertenecer a un compuesto.
-      La destrucción del compuesto implica la destrucción de sus componentes. 
+Existen dos tipos de relaciones de agregación:
+ 
+    + Agregación referencial: Los componentes son reutilizbles por
+      distintos compuestos.
+
+    + Agregación inclusiva: Un componente sólo puede pertenecer a un
+      compuesto.  La destrucción del compuesto implica la destrucción
+de sus componentes.
+ 
 Cuando hacemos una agregación inclusiva lo que realmente estamos haciendo es una relación entre clases tipo "está compuesto por". También llamada composición.
 
 ![Diagrama9](../Imagenes/diagrama9.png)
@@ -133,6 +142,72 @@ vez, es excluyente.
 ![Diagrama12](../Imagenes/diagrama12.png)
 
 Ejemplo completo. 
+
+**CASO PRÁCTICO**
+
+Descripción del sistema:
+
+Bailarín/a: Cada bailarín tiene un nombre artístico, un nombre real, una edad, una especialidad de danza (ballet, contemporánea, jazz, etc., que será una cadena de caracteres) y un nivel de experiencia en años. Los bailarines pueden participar en varias coreografías y en varios ensayos.
+
+Coreografía: Cada coreografía tiene un título, una duración y un estilo de danza (cadena de caracteres). Está creada por un coreógrafo y puede incluir a varios bailarines.
+
+Coreógrafo/a: Es el artista responsable de crear coreografías. De cada coreógrafo interesa el nombre, la especialidad (cadena de caracteres) y el sueldo.
+
+Compañía de danza: Tiene un nombre y una ciudad base. Está formada por bailarines y coreógrafos, y organiza actuaciones. Tiene un director artístico.
+
+Director artístico: Es el responsable de la compañía y toma las decisiones estratégicas. Es un tipo de bailarín con experiencia destacada. Del director se quiere saber el número de años de dirección.
+
+Ensayo: Cada ensayo relaciona una Coreografía con los Bailarines que participan en ella. Tiene atributos propios como fecha y duración. Permite saber qué bailarines ensayan qué coreografía en qué sesión.
+
+Actuación: Es la presentación pública de una o más coreografías. Cada actuación tiene una fecha, un lugar, un aforo y un precio de entrada. Las actuaciones son organizadas por la compañía.
+
+![Diagrama29](../Imagenes/diagrama29.png)
+
+Comenzamos por la clase bailarín. De esta sabemos que pueden participar
+en coreografias. Bien, esto se trata de una relación entre la clase
+bailarín y la clase coreografía. ¿Qué tipo de relación?, de asociación.
+Entonces dibujamos una flecha que va de bailarín a coreografía.  Ahora
+tenemos que tener en cuenta la cardinalidad.  Ninguno o muchos
+bailarines pueden realizar una coreografía, ponemos entonces el simbolo
+(\*) en el lado de coreografía.  Y a su vez, una coreografía puede ser
+hecha por ninguno o muchos bailarines, por lo tanto, otro simbolo (\*)
+en el lado de bailarín.
+ 
+![Diagrama30](../Imagenes/diagrama30.png)
+
+Sobre ensayo se nos dice que relaciona la coreografía con los
+bailarines que participan. Por lo tanto, parece ser que ensayo es un
+atributo de enlace, pero también se nos dice que tiene atributos
+propios como son fecha y duración, por lo tanto, no solo es un atributo
+de enlace, sino una clase de asociación.
+ 
+![Diagrama31](../Imagenes/diagrama31.png)
+
+Ahora vemos que en el caso de actuación, se nos dice que esta esta
+presentada por una o varias coreografias. Esto es otra relación de
+asociación.
+
+![Diagrama32](../Imagenes/diagrama32.png)
+
+Vemos que el coreografo es el que crea las coreografías, y este puede
+crear ninguna o muchas, a su vez la coreografía puede ser creada o
+bien, por un solo coreografo o por muchos.
+
+![Diagrama33](../Imagenes/diagrama33.png)
+
+Vemos que la compañia de danza esta formada por bailarines y
+coregrafos.Esto es una relación de Agregación y se simboliza con el
+rombo. 
+
+![Diagrama34](../Imagenes/diagrama34.png)
+
+Por último, dado que un director artistico es un bailarín especialista,
+utilizamos la relación de especialización/generalización para señalar
+que director artistico es una extensión de la clase bailarín. Asimismo,
+director artistico tiene una compañia, pero puede tener muchas, pero
+una compañia solo puede ser de un director a su vez.
+
+
 
 ### DIAGRAMA DE CASOS DE USO
 Sirven para modelar el comportamiento de un sistema.
