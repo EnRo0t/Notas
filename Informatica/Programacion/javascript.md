@@ -1225,4 +1225,22 @@ if (!errorExistente) {
 }
 ```
 
+### EJERCICIOS CODEWARS
+
+**Invertir un String**
+
+```js
+function solution(str){
+  let word = str.split(''); //Con split dividimos un string en chars y lo añadimos al array word
+  let drow = []; //Inicializamos el array donde irá la palabra invertida
+        for (j = word.length - 1; j >= 0; j--) { //Hacemos un for al revés
+                drow.push(word[j]); //Vamos añadiendo al array drown letra por letra
+        }
+
+        let stringFinal = drow.join(""); //Convertimos el array en String de nuevo
+        return stringFinal; //Retornamos el String
+ }
+
+console.log(solution("hello")); //Ejecutamos la función y la mostramos por consola
+```
 
