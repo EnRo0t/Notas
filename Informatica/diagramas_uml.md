@@ -99,8 +99,7 @@ Existen dos tipos de relaciones de agregación:
     + Agregación referencial: Los componentes son reutilizbles por
       distintos compuestos.
     + Agregación inclusiva: Un componente sólo puede pertenecer a un
-      compuesto.  La destrucción del compuesto implica la destrucción
-de sus componentes.
+      compuesto.  La destrucción del compuesto implica la destrucción de sus componentes.
  
 Cuando hacemos una agregación inclusiva lo que realmente estamos haciendo es una relación entre clases tipo "está compuesto por". También llamada composición.
 
