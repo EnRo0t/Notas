@@ -4,7 +4,6 @@
 
 ### REFERENCIAS WEB
 + https://www.youtube.com/watch?v=orvAkFFWo5o
-
 ### DIAGRAMA DE CLASES
 Captura la estructura estática del sistema, mostrando las clases y las
 relaciones entre ellas.
@@ -209,5 +208,64 @@ puede jugar todos los roles del actor antecesor.
 
 
 ![Diagrama19](../Imagenes/diagrama19.png)
+
+### DIAGRAMA DE SECUENCIA
+Un diagrama de secuencia modela la interacción entre los objetos/actores de
+nuestro sistema, identificando la comunicación (mensajes) entre los mismos y
+las operaciones (métodos) de las clases para resolver un servicio.
+
++ Se debe identificar el emisor y el receptor
++ El orden de los mensajes/eventos es importante, pues representa el orden de
+  la secuencia
++ Se describe el ciclo de vida de los objetos
+
+Ejemplo:
+![Diagrama20](../Imagenes/diagrama20.png)
+
+**Construir un diagrama de secuencia**
+
+Vamos a tomar como ejemplo el siguiente caso: El administrador desea listar
+todos los cursos de una escuela de verano que ha ofertado un administrador con
+un DNI dado (por ejemplo, el administrador con DNI "12345678A"). Nos interesa
+conocer, además de la información completa del curso, su fecha de inserción en
+el sistema y el número de reservas que tiene dicho curso.
+
+Para ello podemos partir de un diagrama de clases como el siguiente (no es
+obligatorio):
+
+![Diagrama23](../Imagenes/diagrama23.png)
+
+1. Identificamos el actor iniciador y el controlador (objeto
+   principal) de nuestro sistema
+
+![Diagrama21](../Imagenes/diagrama21.png)
+
+Identificamos el actor iniciador, en este caso el Administrador.  El primer
+mensaje es la operación, es decir, el caso de uso que queremos resolver. Y como
+parámetro le introducimos el String DNI, esto no es estrictamente obligatorio,
+pero cuanto más completo sea nuestro módelo, mejor. 
+Luego identificamos el objeto principal o controlador, es decir, donde sucede la acción. 
+En este caso, Escuela de verano. 
+
+2. Representamos la comunicación entre el actor y el controlador y empezamos a
+   iterar sobre los objetos
+
+![Diagrama22](../Imagenes/diagrama22.png)
+
+La secuencia es clara, el administrador trata de listar los cursos aportando un DNI.
+Comienza el bucle. Representamos dicho bucle con un marco loop (introducido en UMLv2).
+El objeto de EscuelaVerano le pregunta a Curso si este fue ofertado por administrador.
+Este a su vez (Curso) le pregunta a Oferta y esta a su ves a Administrador. 
+Como vemos existe una secuencia necesaria de "dependencias".
+
+3. Una vez tenemos los objetos seguimos con la interacción
+
+![Diagrama24](../Imagenes/diagrama24.png)
+
+Una vez que tenemos todos los cursos "filtrados" es decir, que son de ese administrador, lo que tenemos que hacer es ofrecer una condición, esta condición se señala con el marco alt. Esta condición nos indica si el curso esta ofertado por el administrador, lo ofertamos, sino, no hacemos nada con dicho curso. 
+Para saber si cumple dicha condición le preguntamos al curso.
+
+### DIAGRAMA DE ACTIVIDADES
+ 
 
 
