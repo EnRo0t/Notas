@@ -325,8 +325,7 @@ Vamos a realizar primero la plantilla:
 |Interactuar - Realizar pruebas en directo                                                    |
 |Utilizar comodín - Realizar pruebas en directo                                               |
 
-|Flujo de eventos                                                                             |
-|:-------------------------------------------------------------------------------------------:|
+Flujo de eventos                                                                             
 |Actor                                     |Sistema                                           |
 |:----------------------------------------:|:------------------------------------------------:|
 |Concursante                               |Inscribe al curso                                 |
@@ -338,7 +337,7 @@ Vamos a realizar primero la plantilla:
 |Jurado                                    |Anuncia el ganador                                |
 |Jurado                                    |Libera el premio al ganador (si lo hay)           |
 |Técnico                                   |Gestiona la iluminación                           |
-|Técnico                                   |Se asegura de que las imagenes quedan registradas|
+|Técnico                                   |Se asegura de que las imagenes quedan registradas |
 
 ![Diagrama35](../Imagenes/diagrama35.png)
 
@@ -349,8 +348,13 @@ sistema es el concurso de pasteleria "el pastis7".
 
 Ahora creamos a los 3 actores: Concursante, técnico y jurado.
 
+![Diagrama37](../Imagenes/diagrama37.png)
 
+Ahora vamos a añadir todas las acciones de cada actor, empezamos con las acciones de Concursante.
 
+![Diagrama38](../Imagenes/diagrama38.png)
+
+Seguimos con las de los otros dos
 
 ### DIAGRAMA DE SECUENCIA
 Un diagrama de secuencia modela la interacción entre los objetos/actores de
