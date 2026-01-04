@@ -98,7 +98,6 @@ Existen dos tipos de relaciones de agregación:
  
     + Agregación referencial: Los componentes son reutilizbles por
       distintos compuestos.
-
     + Agregación inclusiva: Un componente sólo puede pertenecer a un
       compuesto.  La destrucción del compuesto implica la destrucción
 de sus componentes.
@@ -125,10 +124,11 @@ superclase.
 
 ![Diagrama10](../Imagenes/diagrama10.png)
 
-En la Especialización/Generalización podemos (no es obligatorio) agregar unas
-etiquetas para definir si la relación es: 
-    + Completa/Incompleta: Se han definido todas las sublaclases/No se han
-      definido todas las subclases
+En la Especialización/Generalización podemos (no es obligatorio)
+agregar unas etiquetas para definir si la relación es:
+ 
+    + Completa/Incompleta: Se han definido todas las sublaclases/No se
+      han definido todas las subclases
     + Disjunta/Dinámica: Excluyentes/ no excluyentes.
 
 ![Diagrama11](../Imagenes/diagrama11.png)
