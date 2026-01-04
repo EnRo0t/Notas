@@ -259,10 +259,7 @@ especifica. Dicha condición no se pone en el diagrama sino en la plantilla.
 
 Por ejemplo: 
 
-
 ![Diagrama17](../Imagenes/diagrama17.png)
-
-
 
 + Herencia
 
@@ -282,6 +279,78 @@ puede jugar todos los roles del actor antecesor.
 
 
 ![Diagrama19](../Imagenes/diagrama19.png)
+
+**CASO PRÁCTICO**
+
+Tenemos el siguiente caso de uso:
+
++ El concursante puede:
+
+    + Inscribirse al concurso mediante un formulario en línea.
+    + Al inscribirse, puede enviar fotografías de sus creaciones.
+    + Consultar las bases legales y los premios del concurso.
+    + Realizar las pruebas de pastelería en directo.
+    + Durante las pruebas, puede utilizar el comodín del asistente de cocina.
+
++ El jurado puede:
+
+    + Seleccionar a los concursantes.
+    + Puntuar las creaciones de los concursantes.
+    + Anunciar al ganador.
+    + Entregar el premio al ganador (si lo hay).
+
++ El técnico de cámara puede:
+
+    + Gestionar la iluminación del plató.
+
+    + Asegurarse de que las imágenes se graban correctamente.
+
++ El concursante y el jurado pueden interactuar durante las pruebas.
++ Todas las operaciones del concursante requieren autenticación.
+
+Vamos a realizar primero la plantilla:
+
+|Caso de uso               |Actores                       |Resumen                            |
+|:------------------------:|:----------------------------:|:---------------------------------:|
+|Inscribirse a un concurso |Técnico, Concursante y Jurado |Funcionamiento concurso pastelería |
+
+|Incluye                                                                                      |
+|:-------------------------------------------------------------------------------------------:|
+|Inscripción concurso - Autenticación                                                         |
+|Consultar bases legales - Autenticación                                                      |
+|Realizar pruebas en directo - Autenticación                                                  |
+
+|Extiende                                                                                     |
+|:-------------------------------------------------------------------------------------------:|
+|Interactuar - Realizar pruebas en directo                                                    |
+|Utilizar comodín - Realizar pruebas en directo                                               |
+
+|Flujo de eventos                                                                             |
+|:-------------------------------------------------------------------------------------------:|
+|Actor                                     |Sistema                                           |
+|:----------------------------------------:|:------------------------------------------------:|
+|Concursante                               |Inscribe al curso                                 |
+|Concursante                               |Enviar fotos de sus creaciones                    |
+|Concursante                               |Consulta las bases legales y los premios          |
+|Concursante                               |Realiza pruebas de pastelería en directo          |
+|Jurado                                    |Selecciona a los concursantes                     |
+|Jurado                                    |Puntua las creaciones de los concursantes         |
+|Jurado                                    |Anuncia el ganador                                |
+|Jurado                                    |Libera el premio al ganador (si lo hay)           |
+|Técnico                                   |Gestiona la iluminación                           |
+|Técnico                                   |Se asegura de que las imagenes quedan registradas|
+
+![Diagrama35](../Imagenes/diagrama35.png)
+
+Lo primero que vamos a hacer es crear el recuadro del sistema, en este caso el
+sistema es el concurso de pasteleria "el pastis7".
+
+![Diagrama36](../Imagenes/diagrama36.png)
+
+Ahora creamos a los 3 actores: Concursante, técnico y jurado.
+
+
+
 
 ### DIAGRAMA DE SECUENCIA
 Un diagrama de secuencia modela la interacción entre los objetos/actores de
