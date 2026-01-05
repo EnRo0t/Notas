@@ -257,6 +257,14 @@ En el ejemplo, el caso de uso Solicitar información adicional del cliente
 extiende a Evaluar solicitud de crédito solo cuando se cumpla una condición
 especifica. Dicha condición no se pone en el diagrama sino en la plantilla. 
 
+Resumen:
+
++ El caso de uso base funciona por sí solo.
+
++ El caso de uso que extiende se ejecuta solo si se cumple una condición específica.
+
++ El caso base no depende del caso extendido.
+
 Por ejemplo: 
 
 ![Diagrama17](../Imagenes/diagrama17.png)
@@ -356,6 +364,25 @@ Ahora vamos a añadir todas las acciones de cada actor, empezamos con las accion
 
 Seguimos con las de los otros dos
 
+![Diagrama39](../Imagenes/diagrama39.png)
+
+Ahora colocamos todos los extends. En un extend, el caso extendido recibe comportamiento adicional.
+Solo se ejecuta bajo ciertas condiciones.
+Es caso base es completo por sí mismo.
+La dependencia es solo desde el extend hacia la base. 
+
+Por ejemplo, en el caso de utilizar comodín, este extiende a realizar pruebas
+en directo en el sentido de que le confiere un comportamiento adicional. A su
+vez, utilizar comodín es dependiente de realizar pruebas en directo, pero
+realizar pruebas en directo no lo es de utilizar comodín.
+
+![Diagrama40](../Imagenes/diagrama40.png)
+
+Ahora añadimos los includes. Un include es una relación de dependencia absoluta
+entre casos de uso, de obligatoriedad.  Como se nos dice, cualquier función del
+concursante requiere autenticación.
+
+ 
 ### DIAGRAMA DE SECUENCIA
 Un diagrama de secuencia modela la interacción entre los objetos/actores de
 nuestro sistema, identificando la comunicación (mensajes) entre los mismos y
