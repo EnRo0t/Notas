@@ -381,7 +381,6 @@ realizar pruebas en directo no lo es de utilizar comodín.
 Ahora añadimos los includes. Un include es una relación de dependencia absoluta
 entre casos de uso, de obligatoriedad.  Como se nos dice, cualquier función del
 concursante requiere autenticación.
-
  
 ### DIAGRAMA DE SECUENCIA
 Un diagrama de secuencia modela la interacción entre los objetos/actores de
@@ -429,7 +428,7 @@ En este caso, Escuela de verano.
 La secuencia es clara, el administrador trata de listar los cursos aportando un DNI.
 Comienza el bucle. Representamos dicho bucle con un marco loop (introducido en UMLv2).
 El objeto de EscuelaVerano le pregunta a Curso si este fue ofertado por administrador.
-Este a su vez (Curso) le pregunta a Oferta y esta a su ves a Administrador. 
+Este a su vez (Curso) le pregunta a Oferta y esta a su vez a Administrador. 
 Como vemos existe una secuencia necesaria de "dependencias".
 
 3. Una vez tenemos los objetos seguimos con la interacción
@@ -438,6 +437,67 @@ Como vemos existe una secuencia necesaria de "dependencias".
 
 Una vez que tenemos todos los cursos "filtrados" es decir, que son de ese administrador, lo que tenemos que hacer es ofrecer una condición, esta condición se señala con el marco alt. Esta condición nos indica si el curso esta ofertado por el administrador, lo ofertamos, sino, no hacemos nada con dicho curso. 
 Para saber si cumple dicha condición le preguntamos al curso.
+
+**CASO PRÁCTICO**
+
+1. El Estudiante inicia la sesión en el Sistema de la Academia Digital de
+   Magia.
+
+2. El Sistema comprueba las credenciales y autoriza el acceso.
+
+3. El Estudiante decide crear un hechizo nuevo y envía la solicitud al Sistema.
+
+4. El Sistema crea un Hechizo, asignándole los parámetros definidos por el
+   estudiante (nombre, efecto, fuerza, nivel).
+
+5. El Estudiante comienza a practicar el hechizo con la asistencia virtual del
+   Sistema.
+
+6. El Sistema envía retroalimentación en tiempo real sobre la precisión y el
+   efecto del hechizo.
+
+7. El Estudiante ajusta los movimientos y las propiedades del hechizo según las
+   indicaciones del Sistema.
+
+8. El Estudiante continúa practicando el hechizo con la asistencia virtual del
+   Sistema.
+
+9. Cuando el hechizo se ejecuta correctamente, el Sistema registra el éxito y
+   actualiza el objeto Hechizo con el resultado.
+
+10. El Estudiante recibe un informe final del Hechizo sobre la práctica, que
+    incluye puntuación y sugerencias.
+
+11. El Sistema de la Academia Digital actualiza el registro de aprendizaje del
+    estudiante con el hechizo creado y practicado.
+
+![Diagrama41](../Imagenes/diagrama41.png)
+
+Comenzamos identificando los objetos, que en este caso son 3. Estudiante, Sistema y Hechizo.
+
+![Diagrama42](../Imagenes/diagrama42.png)
+
+A continuación empezamos a crear la secuencia. En este caso, empezamos con la
+petición del usuario al sistema para iniciar sesión pasando sus credenciales.
+El sistema hace un self call con las credenciales y autoriza el acceso. 
+
+![Diagrama43](../Imagenes/diagrama43.png)
+
+Ahora creamos la solicitud del estudiante al sistema para crear un nuevo
+hechizo con unos parámetros concretos. Los resumimos con n,f,e,n (nombre,
+fuerza, efecto, nivel).
+
+![Diagrama44](../Imagenes/diagrama44.png)
+
+Luego el estudiante práctica un hechizo, el sistema le da feedback del hechizo,
+el estudiante ajusta el hechizo en relación al feedback y vuelve a probar,
+hasta que el sistema lo da por bueno y registra el exito. 
+
+![Diagrama45](../Imagenes/diagrama45.png)
+
+Finalmente el estudiante recibe un informe final del hechizo sobre su práctica,
+con puntuación y sugerencias. Y el sistema actualiza el registro con el hechizo
+terminado.
 
 ### DIAGRAMA DE ACTIVIDADES
 Un diagrama de actividades representa en detalle las actividades que suceden en un caso de uso. 
