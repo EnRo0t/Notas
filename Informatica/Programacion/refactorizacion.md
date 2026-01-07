@@ -7,6 +7,7 @@ sin cambiar su comportamiento.
 ### TÉCNICAS
 
 **Extracción de constantes**
+
 Se utiliza cuando:
 + Un valor literal se repite
 + Cuando un número o string no explica su significado
@@ -28,6 +29,7 @@ if (user.getAge() > EDAD_MINIMA) {
 ```
 
 **Extracción de método**
+
 Se utiliza cuando:
 + Un método hace demasiadas cosas
 + Código duplicado
@@ -57,6 +59,7 @@ double calcularTotalConImpuestos(Pedido pedido) {
 ```
 
 **Extracción de variables**
+
 Se utiliza cuando:
 + Expresiones largas y complejas
 + Mejorar legibilidad
@@ -79,6 +82,7 @@ if (esMayorDeEdad && puedeAcceder) {
 ```
 
 **Renombrado de variables**
+
 Se utiliza cuando:
 + El nombre no explica bien la intención
 + Hay abreviaturas, ambigüedad o contexto innecesario
@@ -93,6 +97,7 @@ int daysSinceCreation;
 ```
 
 **Inline**
+
 Es lo opuesto a la extracción.
 Se utiliza cuando:
 + La variable no añade claridad
@@ -109,6 +114,7 @@ return total * 0.21;
 ```
 
 **Guard clauses (cláusulas de guarda)**
+
 Se utiliza cuando:
 + Hay muchos ifs anidados
 + Validaciones al inicio del método
