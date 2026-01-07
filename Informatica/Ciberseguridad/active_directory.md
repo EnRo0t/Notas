@@ -9,6 +9,7 @@
 + Todos en una misma red NAT
 
 **Configurando el Domain Controller**
+
 El DC será el servidor que funcionara como nodo central de nuestro directorio activo. 
 
 ![ad1](../../Imagenes/ad1.png)
@@ -48,9 +49,11 @@ entorno real.
 ![ad16](../../Imagenes/ad16.png)
 
 Desinstalamos el Windows Defender
+
 ![ad17](../../Imagenes/ad17.png)
 
 ![ad20](../../Imagenes/ad20.png)
+
 Vamos a crear ahora el usuario a nível de directorio activo. 
 
 ![ad21](../../Imagenes/ad21.png)
@@ -61,9 +64,11 @@ Vamos a crear ahora el usuario a nível de directorio activo.
 Tenemos que poner como servidor DNS la IP del DC.
  
 ![ad19](../../Imagenes/ad19.png)
+
 Comprobamos como ahora tenemos conexión con el DC. 
 
 ![ad22](../../Imagenes/ad22.png)
+
 Ahora vamos a añadir este pc al dominio. 
 
 ![ad23](../../Imagenes/ad23.png)
