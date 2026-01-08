@@ -420,6 +420,143 @@ Resultado esperado:
 |:-------------:|:-------------------------:|:----------------:|:-------------:|
 |Lo último      |Errores nuevos tras cambios|Caja blanca/negra |analistas QA   |
 
+## DISEÑO DE CASOS DE PRUEBA
+
+**Paso 1 (Que probar)**
+
+Identificar aquello que queremos probar.
+Por ejemplo, queremos probar un método concreto, una prueba unitaria. 
+
+Ejemplo. Tenemos el siguiente código y queremos poner a prueba el método
+nivellRisc.
+```java
+// Fitxer RiscTerratremol.java
+package terratremol;
+public class RiscTerratremol {
+    public static String nivellRisc(double magnitud)
+                                    throws MagnitudIncorrectaException{
+        if(magnitud >= 0 && magnitud<= 10) {
+        if (magnitud <= 2.0) return "No percebut";
+        else if (magnitud <= 4.0) return "Lleu";
+        else if (magnitud <= 6.0) return "Moderat";
+        else if (magnitud <= 8.0) return "Fort";
+        else return "Catastròfic";
+    }
+    else throw new MagnitudIncorrectaException("Valor de magnitud
+incorrecte "+ magnitud +".");
+    }
+}
+// Fitxer MagnitudIncorrectaException.java
+package terratremol;
+@SuppressWarnings("serial")
+public class MagnitudIncorrectaException extends Exception {
+    public LMagnitudIncorrectaException (String missatge) {
+            super(missatge);
+    }
+}
+```
+
+**Paso 2 (Identificar condiciones)**
+
+Identificar las condiciones, restricciones y contenido de las entradas y
+salidas.
+
+Condiciones:
++ Entrada: El nivel de riesgo ha de ser un double entre 0 y 10, ambos
+  incluidos.
++ Salida: 
+    + Si el valor de la lectura de aire en inferior a 0 o superior a 10, se
+      lanza excepción
+    + En caso contrario, se retorna un String con un adjetivo descriptivo del
+      nivel de riesgo
+
+**Paso 3 (Definir clases de equivalencia)**
+
+Ahora con estas condiciones identificadas, identificamos las clases de equivalencia
+Las clases de equivalencia son grupos de entradas que se comportan de la misma
+manera respecto al sistema.  La idea es reducir la cantidad de pruebas, sin
+perder cobertura.
+> Si un valor de la clase funciona, todos los demás de esa clase deberían
+> funcionar igual.
+
+Ahora veamos las consideraciones para los valores de entrada. 
+En nuestro caso, el método nos pide un valor entre 0 y 10.
+
+Consideraciones: 
++ Hay un rango de datos válido y dos invalidos. (rango válido de 0 <= magnitud
+  >= 10 e inválido magnitud < 0 y magnitud > 10)
++ Los datos que van del 0 al 2 se comportan igual.
++ Los datos que van del 2 al 4 se comportan igual.
++ Los datos que van del 4 al 6 se comportan igual.
++ Los datos que van del 6 al 8 se comportan igual.
++ Los datos que van del 8 al 10 se comportan igual.
++ Todos los datos fuera de rango (0 <= magnitud >= 10) se comportan igual.
+
+Por lo tanto, las clases de equivalencia serían:
+1. magnitud < 0 [inválida]
+2. magnitud > 10 [inválida]
+3. magnitud >=0 y magnitud <=2 [válida]
+4. magnitud >=2 y magnitud <=4 [válida]
+5. magnitud >=4 y magnitud <=6 [válida]
+6. magnitud >=6 y magnitud <=8 [válida]
+7. magnitud >=8 y magnitud <=10 [válida]
+
+**Escoger un valores representativos**
+
+Ahora vamos a escoger valores concretos de cada clase. 
+Debemos escoger el valor mínimo, el intermedio y los errores tipicos.
+
+Ejemplo:
+
+|clase    |Tipo         |Valor representativo|
+|:-------:|:-----------:|:------------------:|
+|1        |inválida     |-1, -1000000000     |
+|2        |inválida     |11, 99999999999     |
+|3        |válida       |0, 1, 2             |
+|4        |válida       |2, 3, 4             |
+|5        |válida       |4, 5, 6             |
+|6        |válida       |6, 7 , 8            |
+|7        |válida       |8, 9, 10            |
+
+**Dibujar el diagrama de flujo**
+
+Ahora vamos a dibujar todos los caminos posibles que puede hacer el método.
+
+![prueba1](../../Imagenes/pruebas1.png)
+
+**Escribir caminos independientes**
+
+Ahora que tenemos el diagrama de flujo vamos a apuntar todos los caminos
+posibles.
+
++ 1-11-12
++ 1-2-3-12
++ 1-2-4-5-10
++ 1-2-4-6-7-10
++ 1-2-4-6-8-9-12
++ 1-2-4-6-8-10-12
+
+**Calcular complejidad ciclomática**
+
+Podemos saber el número de caminos posibles con esta formula:
+
+```
+cc = complejidad ciclomática
+número ramas = nr
+número nodos = nn
+
+cc = nr - nn + 2
+```
+Por ejemplo, en nuestro caso. 
+
+```
+nr = 16
+nn = 12
+
+cc = 16 - 12 + 2
+cc = 6 
+```
+Y tal cual son 6 caminos.
 
 
-
+ 
