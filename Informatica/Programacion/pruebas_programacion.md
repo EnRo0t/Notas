@@ -558,5 +558,70 @@ cc = 6
 ```
 Y tal cual son 6 caminos.
 
+## JUNIT
+
+Junit es un framework para realizar tests. 
+Se implementa muy bien en la mayororia de IDEs.
+
+Ejemplo de Junit para pruebas unitarias.
+
+Tenemos el siguiente código java:
+```java
+public class Calculadora {
+
+    pubic static int suma(int a, int b) {
+        return a + b;
+    }
+
+    public static int resta(int a, int b) {
+        return a - b;
+    }
+}
+```
+Ahora queremos saber si estos dos métodos funcionan. Es obvio que para métodos
+tan simples podemos simplemente escribir un poco de código y probarlos, pero
+esto no es ideal cuando se trata de métodos más complejos.  Para ello podemos
+hacer uso de JUnit. 
+
+```java
+// Importamos libreria JUnit
+import static org.junit.Assert.*; 
+import org.junit.Test;
+
+public class CalculadoraTest {
+    
+    @Test
+    public void testSuma() {
+        int resultado = Calculadora.suma(2,3);
+        int esperado = 5; // 2 + 3 = 5
+        
+        assertEquals(esperado, resultado);
+    }
+
+    @Test
+    public void testResta() {
+        int resultado = Calculadora.resta(2,3);
+        int esperado = 5; // 2 - 3 = -1
+        assertEquals(esperado, resultado); 
+    }
+
+}
+```
+Utilizamos el método assertEquals que comprueba si un valor es igual a otro. 
+
+Hay una biblioteca muy extensa de asserts para utilizar, estos son los 10 más básicos:
+
+| #  | Assert                        | Descripción                                   | Ejemplo |
+|----|-------------------------------|-----------------------------------------------|---------|
+| 1  | `assertEquals(expected, actual)`     | Comprueba que dos valores son iguales        | `assertEquals(5, calculadora.sumar(2, 3));` |
+| 2  | `assertNotEquals(unexpected, actual)` | Comprueba que dos valores no son iguales     | `assertNotEquals(4, calculadora.sumar(2, 3));` |
+| 3  | `assertTrue(condition)`             | Comprueba que la condición sea true         | `assertTrue(lista.isEmpty());` |
+| 4  | `assertFalse(condition)`            | Comprueba que la condición sea false        | `assertFalse(usuario.isActivo());` |
+| 5  | `assertNull(object)`                | Comprueba que un objeto sea null            | `assertNull(usuario.getDireccion());` |
+| 6  | `assertNotNull(object)`             | Comprueba que un objeto no sea null         | `assertNotNull(usuario.getNombre());` |
+| 7  | `assertArrayEquals(expectedArray, actualArray)` | Comprueba que dos arrays sean iguales elemento por elemento | `int[] esperado = {1,2,3}; int[] actual = {1,2,3}; assertArrayEquals(esperado, actual);` |
+| 8  | `assertThrows(expectedException.class, executable)` | Comprueba que se lance una excepción esperada | `assertThrows(NoLletraException.class, () -> pilaPosa.posa('1'));` |
+| 9  | `assertSame(expected, actual)`      | Comprueba que dos referencias apunten al mismo objeto | `assertSame(usuario1, usuario2);` |
+| 10 | `assertNotSame(unexpected, actual)` | Comprueba que dos referencias no apunten al mismo objeto | `assertNotSame(usuario1, usuario3);` |
 
  
