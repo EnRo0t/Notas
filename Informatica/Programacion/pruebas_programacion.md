@@ -484,7 +484,7 @@ En nuestro caso, el método nos pide un valor entre 0 y 10.
 
 Consideraciones: 
 + Hay un rango de datos válido y dos invalidos. (rango válido de 0 <= magnitud
-  >= 10 e inválido magnitud < 0 y magnitud > 10)
+  \>= 10 e inválido magnitud < 0 y magnitud > 10)
 + Los datos que van del 0 al 2 se comportan igual.
 + Los datos que van del 2 al 4 se comportan igual.
 + Los datos que van del 4 al 6 se comportan igual.
