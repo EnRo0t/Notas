@@ -416,3 +416,10 @@ Resultado esperado:
 + La nueva funcionalidad está operativa
 + No hay errores introducidos por cambios recientes
 
+|Cuando         |Qué                        |Enfoque           |Quien          |
+|:-------------:|:-------------------------:|:----------------:|:-------------:|
+|Lo último      |Errores nuevos tras cambios|Caja blanca/negra |analistas QA   |
+
+
+
+
