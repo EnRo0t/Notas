@@ -1441,6 +1441,7 @@ fetch("https://webejemplo.com/users");
 ```
 
 Al final siempre es:
+
 ```js
 pidoUnRecurso("recurso")
 .entonces(datosRecurso => recurso.convierteTexto()
@@ -1453,8 +1454,7 @@ pidoUnRecurso("recurso")
 .finalmente( () => {
     //Ejecuta esto siempre
 }
-
-```js
+```
 
 **Métodos HTTP**
 
