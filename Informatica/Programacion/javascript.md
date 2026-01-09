@@ -279,6 +279,7 @@ let numero_valid = Number(numero);
 ```
 ### CONVERSION DE TIPOS
 **Convertir String a Number**
+
 ```js
 let palabra = "Armario";
 let numero = "123";
@@ -286,19 +287,31 @@ let numero = "123";
 Number(palabra); //Esto se convienrte en NaN
 Number(numero); //Esto se convierte en 123
 ```
+**Convertir String a Array con Spread Operator (...)**
+
+Aunque los Strings en js son iterables, eso no los convierte en arrays.
+
+```js
+let stringEjemplo = "Hola";
+
+const arr = [...stringEjemplo];
+```
 
 ### TRATAMIENTO STRINGS
 **Eliminar espacios**
+
 ```js
 let ejemplo = "ejemplo ";
 console.log(ejemplo.trim()); //Devuelve la palabra sin espacio al final.
 ```
 **Convertir a minúsculas**
+
 ```js
 let string_ejemplo = "HOLA";
 console.log(string_ejemplo.toLowerCase()); //Esto devolverá hola
 ```
 **Convertir a mayúscula**
+
 ```js
 let string_ejemplo = "hola";
 console.log(string_ejemplo.toUpperCase(); //Esto devolverá HOLA
@@ -1243,4 +1256,251 @@ function solution(str){
 
 console.log(solution("hello")); //Ejecutamos la función y la mostramos por consola
 ```
+
+**Enamorados**
+
+Si el una flor tiene un número de petalos par y la otra impar, es true, sino false.
+
+```js
+function lovefunc(flower1, flower2){
+  // moment of truth
+  if(flower1 % 2 == 0 && flower2 % 2 != 0) {
+    return true
+  } else if(flower2 % 2 == 0 && flower1 % 2 != 0){
+    return true
+  } else {
+    return false
+  }
+}
+```
+
+**Encontar aguja en un array**
+
+Encuentra "needle" en el array haystack
+
+```js
+function findNeedle(haystack) {
+  // your code here
+  if(haystack.includes("needle")) {
+    let result = "found the needle at position " + haystack.indexOf("needle");
+    return result 
+  }
+}
+
+//opcion 2
+
+function findNeedle(haystack) {
+    return "found the needle at position " + haystack.indexOf("needle");
+}
+```
+
+**Alquiler de coche**
+
+Crea una function que si alquilas el coche por 3 dias o más te reducen en 20$ el precio total.
+Si lo alquilas por 7 días o más, te reducen en 50$ el total.
+El precio de coche/dia es 40$.
+
+```js
+function rentalCarCost(d) {
+  // Your solution here
+  let priceDay = 40;
+  let totalPrice; 
+  if(d >= 7) {
+    totalPrice = ((priceDay * d) - 50);
+    return totalPrice
+  } else if(d >=3 && d < 7) {
+    totalPrice = ((priceDay * d) - 20);
+    return totalPrice
+  } else {
+    totalPrice = priceDay * d;
+    return totalPrice
+  }
+}
+```
+
+**Función calculadora**
+
+Debes hacer una función que pasandole el tipo de operación y dos valores, devuelva el resultado. 
+
+```js
+function basicOp(operation, value1, value2){
+  //Code
+  switch(operation) {
+    
+    case "+":
+          return value1 + value2
+    break;
+    case "-":
+          return value1 - value2
+    break;
+    case "*":
+          return value1 * value2
+    break
+    case "/":
+          return value1 / value2
+    break
+    default:
+          return 0;
+  }
+}
+
+// Método alternativo
+function basicOp(operation, value1, value2)
+{
+  return eval(value1 + operation + value2);
+}
+```
+
+**Si tu nombre empieza por R...**
+
+Función a la que le pasas un nombre por parámetro y si empieza por R, ese
+nombre esta tocando el banjo.
+
+```js
+function areYouPlayingBanjo(name) {
+  // Implement me
+ 
+let letters = name.split('');
+  if(letters[0] == "R" || letters[0] == "r") {
+    return name + " plays banjo"
+  } else {
+    return name + " does not play banjo"
+  }
+  
+  return name;
+}
+
+/* NOTA PARA MI. En js los strings son iterables
+ * no necesitas dividir el string con split() el string en si
+ * ya es un array de chars...
+ * por lo tanto esto se puede hacer con name[0] == "r"  
+ */
+```
+
+## AJAX
+AJAX son las siglas de Asynchronous JavaScript and XML.  Es una técnica de
+desarrollo web que permite a las páginas comunicarse de forma asíncrona con el
+servidor sin necesidad de recargar la página, normalmente usando JavaScript y
+formatos como JSON.
+
+Para implementar esta técnica en el cliente se utilizan principalmente dos
+Client-Side APIs del navegador: XMLHttpRequest y fetch.
+
+XMLHttpRequest es una API más antigua y más verbosa, aunque todavía compatible.
+Fetch es una API más moderna, basada en promesas y más sencilla de usar.
+
+### FETCH
+
+**¿Qué es?**
+
++ Es una Client-Side API del navegador que nos sirve para implementar AJAX
++ Esta basada en promesas
++ No bloquea la ejecución
+
+**Como funciona**
+
+Imaginemos que queremos que al apretar un botón se nos cargue un archivo local
+en formato texto.
+
+```html
+<body>
+    <button id="boton"></button>
+    <div id="container"></div>
+</body>
+```
+
+```js
+let btn = document.getElementById("boton");
+let contenedor = document.getElementById("container");
+
+btn.addEventListener("click", mostrarTexto);
+
+function mostrarTexto() {
+    fetch("texto.txt")
+    .then(data => data.text())
+    .then(data2 => {
+        contenedor.innerHTML = data2;        
+    })
+    .catch(error => {
+        console.log("ERROR: " + error);
+    })
+    .finally( () => {
+        console.log("Programa finalizado");
+    });
+}
+```
+
+Si queremos llamar a un recurso del servidor es exactamente lo mismo pero señalando al endpoint
+```js
+fetch("/api/users");
+```
+
+Si queremos hacerlo con un servidor externo igual
+```js
+fetch("https://webejemplo.com/users");
+```
+
+Al final siempre es:
+´´´js
+pidoUnRecurso("recurso")
+.entonces(datosRecurso => recurso.convierteTexto()
+.entonces(datosRecurso2 => {
+    //haz esto con el recurso
+}
+.capturaError(error => {
+    //Ejecuta esto
+}
+.finalmente( () => {
+    //Ejecuta esto siempre
+}
+
+´´´js
+
+**Métodos HTTP**
+
+Bien, fetch por defecto hace un GET, si queremos hacer otro método HTTP debemos
+especificarlo.
+
+Por ejemplo por POST:
+
+´´´js
+fetch("/api/users", {
+  method: "POST",
+  body: JSON.stringify({ nombre: "Ana" }),
+  headers: { "Content-Type": "application/json" }
+});
+´´´
+
+RECORDATORIO MÉTODOS HTTP:
++ GET -> Leer datos
++ POST -> Enviar datos
++ PUT/PATCH -> Actualizar datos
++ DELETE -> Borrar datos
+
+**Cabeceras (headers)**
+
+´´´js
+fetch("/api", {
+  headers: { "Authorization": "Bearer token123" }
+});
+´´´
+
+**Body**
+
+´´´js
+body: JSON.stringify({ name: "Juan" })
+´´´
+
+**Conversiones**
+
+Fetch no devuelve los datos en si, devuelve un objeto response. 
+Hemos de converiir dicho objeto en el formato que queremos.
+
++ response.text() -> Texto plano
++ response.json() -> json
++ response.blob() -> archivos binarios (imágenes, PDFs)
++ response.arrayBuffer() -> Datos binarios sin procesar
+
+Cada uno devuelve otra promesa, por eso usamos .then()
+
 
