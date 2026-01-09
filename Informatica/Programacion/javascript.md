@@ -1441,7 +1441,7 @@ fetch("https://webejemplo.com/users");
 ```
 
 Al final siempre es:
-´´´js
+```js
 pidoUnRecurso("recurso")
 .entonces(datosRecurso => recurso.convierteTexto()
 .entonces(datosRecurso2 => {
@@ -1454,7 +1454,7 @@ pidoUnRecurso("recurso")
     //Ejecuta esto siempre
 }
 
-´´´js
+```js
 
 **Métodos HTTP**
 
@@ -1463,13 +1463,13 @@ especificarlo.
 
 Por ejemplo por POST:
 
-´´´js
+```js
 fetch("/api/users", {
   method: "POST",
   body: JSON.stringify({ nombre: "Ana" }),
   headers: { "Content-Type": "application/json" }
 });
-´´´
+```
 
 RECORDATORIO MÉTODOS HTTP:
 + GET -> Leer datos
@@ -1479,17 +1479,17 @@ RECORDATORIO MÉTODOS HTTP:
 
 **Cabeceras (headers)**
 
-´´´js
+```js
 fetch("/api", {
   headers: { "Authorization": "Bearer token123" }
 });
-´´´
+```
 
 **Body**
 
-´´´js
+```js
 body: JSON.stringify({ name: "Juan" })
-´´´
+```
 
 **Conversiones**
 
