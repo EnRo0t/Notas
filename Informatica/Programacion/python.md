@@ -203,6 +203,85 @@ def miFuncion():
 # Ejecuto mi función
 miFuncion()
 ```
+### TIPOS DE DATO
+
+|Tipo           |nombre                     |nomeclatura                |
+|:-------------:|:-------------------------:|:-------------------------:|
+|Texto          |String                     |str                        |
+|Numeros        |Enteros                    |int                        |
+|Numeros        |Coma flotante              |float                      |
+|Numeros        |complejos                  |complex                    |
+|De secuncia    |lista                      |list                       |
+|De secuencia   |tupla                      |tuple                      |
+|De secuencia   |rango                      |range                      |
+|Mapeado        |diccionario                |dict                       |
+|Asignación     |set                        |set                        |
+|Asiganción     |frozenset                  |frozenset                  |
+|Booleanos      |booleano                   |bool                       |
+|Binarios       |byte                       |byte                       |
+|Binarios       |bytearray                  |bytearray                  |
+|Binarios       |memoryview                 |memoryview                 |
+|Sin tipo       |No tipo                    |NoneType                   |
+
+**Saber el tipo de dato**
+Para comprobar que tipo de dato es una variable podemos
+utilizar type():
+
+```py
+x = 5
+y = "Aitor"
+print(type(x))
+print(type(y))
+```
+
+**Asignar un tipo de dato a una variable**
+
+En Python no es necesario definir explícitamente el tipo de dato al asignar un
+valor a una variable, ya que es un lenguaje de tipado dinámico.  El tipo de
+dato se determina de forma implícita según el valor asignado, y está asociado
+al objeto al que la variable hace referencia.
+
+Ejemplos:
+
+|Tipo de dato                 |Asignación                          |
+|:---------------------------:|:----------------------------------:|
+|str                          |x = "Hola mundo"                    |
+|int                          |x = 20                              |
+|float                        |x = 20.5                            |
+|complex                      |x = 1j                              |
+|list                         |x = ["Manzana","Pera","Naranja"]    |
+|tuple                        |x = ("Manazana","Pera,"Naranja")    |
+|range                        |x = range(6)                        |
+|dict                         |x = {"nombre": "John", "edad" : 33} |           
+|set                          |x = {"Manazana", "Banana", "Fresa"} |
+|frozenset                    |x = ({"Manzana", "Banana", "Fresa"})|
+|bool                         |x = true                            |
+|bytes                        |x = b"Hello"                        |
+|bytearray                    |x = bytearray(5)                    |
+|memoryview                   |x = memoryview(bytes(5))            |
+|None                         |x = None                            |
+
+A pesar de que no es estrictamente necesario, sí podemos explicitar el tipo de
+dato de una variable.
+
+|Tipo de dato                 |Asignación                                |
+|:---------------------------:|:----------------------------------------:|
+|str                          |x = str("Hola mundo")                     |
+|int                          |x = int(20)                               |
+|float                        |x = float(20.5)                           |
+|complex                      |x = complex(1j)                           |
+|list                         |x = list(("Manzana","Pera","Naranja"))    |
+|tuple                        |x = tuple(("Manazana","Pera,"Naranja"))   |
+|range                        |x = range(6)                              |
+|dict                         |x = ("nombre": "John", "edad" : 33)       |           
+|set                          |x = (("Manazana", "Banana", "Fresa"))     |
+|frozenset                    |x = (("Manzana", "Banana", "Fresa"))      |
+|bool                         |x = bool(5)                               |
+|bytes                        |x = bytes(5)                              |
+|bytearray                    |x = bytearray(5)                          |
+|memoryview                   |x = memoryview(bytes(5))                  |
+|None                         |x = None                                  |
+
 
 ### CASTEO
 Un cast es una conversión explicita de un tipo de dato a
@@ -214,15 +293,148 @@ y = int(3) # y será 3
 z = float(3) # z será 3.0 
 ```
 
-### SABER EL TIPO DE DATO
-Para comprobar que tipo de dato es una variable podemos
-utilizar type():
+## STRINGS
 
+**Meter comillas dentro de otras comillas**
+
+Puedes utilizar comillas simples para meter comillas dentro de otras comillas. 
 ```py
-x = 5
-y = "Aitor"
-print(type(x))
-print(type(y))
+print("Hola a todos 'sobretodo a la buena gente'")
 ```
 
+**Strings multilinea**
+
+```py
+ a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a) 
+```
+
+**Los Strings son ARRAYS**
+
+Este es un concepto importante a tener en cuenta. Un String actua como un array
+de carácteres. 
+
+```py
+a = "Hello Word"
+print(a[1]) # Me devolveria "e"
+```
+Hay que tener en cuenta que el indice empieza siempre en 0
+
+**Recorrer un String como si fuera un ARRAY (lo es)**
+
+```py
+for x in "Aitor"
+    print(x)
+```
+
+**Conocer longitud de un String**
+
+```py
+a = "Hello World"
+print(len(a))
+```
+
+**Comprobar si un String contiene una palabra**
+
+```py
+txt = "Las mejores cosas del mundo son gratis"
+print("gratis" in txt)
+```
+
+Esto también lo podríamos utilizar dentro de un if
+```py
+txt = "Las mejores cosas del mundo son gratis"
+if "gratis" in txt:
+    print("'Gratis' esta en el texto")
+```
+
+**Comprobar que un String NO contiene una palabra**
+
+```py
+txt = "Las mejores cosas del mundo son gratis"
+print("gratis" not in txt)
+```
+
+### DIVIDIR STRINGS
+
+Puedes dividir un string, desde un punto a otro simplemente indicando un indice:
+```py
+b = "Hola Mundo"
+print(b[2:5]) # Corta desde "o" hasta "M" sin incluirlos. Es decir: la (El espacio cuenta)
+```
+
+**Dividir desde el principio**
+
+```py
+b = "Hola Mundo"
+print(b[:5]) # Desde el principio hasta el 4 carácter
+```
+
+**Dividir hasta el final** 
+
+```py
+b = "Hola Mundo"
+print(b[2:]) # Desde el tercer carácter hasta el final. Es decir: la Mundo
+```
+
+**Indexación negativa**
+
+```py
+b = "Hola Mundo"
+print(b[-5:-2]) # Contando desde el final
+```
+
+### MODIFICAR STRINGS
+    
+**Convertir a mayúsculas**
+
+```py
+a = "Hello World"
+print(a.upper())
+```
+
+**Convertir a minúsculas**
+
+```py
+a = "Hello World"
+print(a.lower())
+```
+
+**Eliminar espacio en blanco**
+
+```py
+a = "Hello World "
+print(a.strip()) # Elimina el espacio en blanco del final
+```
+
+**Remplazar un String**
+
+```py
+a = "Hello World "
+print(a.replace("H", "J")) # Remplaza H por J
+```
+
+**Dividir un String y que retorne una lista**
+
+```py
+a = "Hello, World "
+print(a.split(",")) # Utilizará la coma para separar los elementos de la lista
+# Devolverá: ["Hello", " World!"] 
+```
+
+### CONCATENACIÓN DE STRINGS
+
+```py
+a = "Hello"
+b = "World"
+
+c = a + b
+
+print(c) # HelloWorld
+```
+
+### FORMATE DE STRINGS
 
