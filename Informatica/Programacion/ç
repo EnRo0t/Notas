@@ -441,38 +441,9 @@ print(c) # HelloWorld
 **Fstring**
 
 Con "f" podemos formatear un string y añadir las variables con {}:
-Este es el método más utilizado en la actualidad.
 
 ```py
 edad = 33
 txt = f"Mi nombre es Aitor y tengo {edad} años"
 ```
-
-En el placeholder {} pueden ir variables, operaciones, funciones...
-
-**Carácteres de escape**
-
-Podemos escapar ciertos carácteres con "\"
-
-
-|código             |Resultado                                  |
-|:-----------------:|:-----------------------------------------:|
-|\'                 |Comilla simple                             |
-|\ \                |Barra inversa                              |
-|\n                 |Salto de línea                             |
-|\r                 |Carriage return                            |
-|\t                 |Tabulación                                 |
-|\b                 |backspace                                  |
-|\f                 |Form feed                                  |
-|\ooo               |Valor Octal                                |
-|\xhh               |Valor Hexadecimal                          |
-
-### MÉTODOS STRING
-
-|Métodos                     |Descripción                                  |
-|:--------------------------:|:-------------------------------------------:|
-|capitalize()                |Convierte el primer carácter en mayúscula    ||casefold()                  |Convierte el string en minúscula             |
-|center()                    |Retorna un String centrado                   |
-|count()                     |Retorna el número de veces que un valor especifico se repite en un string|
-|encode()                    |
 
