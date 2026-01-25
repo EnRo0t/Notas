@@ -438,3 +438,73 @@ print(c) # HelloWorld
 
 ### FORMATEO DE STRINGS
 
+**Fstring**
+
+Con "f" podemos formatear un string y añadir las variables con {}:
+Este es el método más utilizado en la actualidad.
+
+```py
+edad = 33
+txt = f"Mi nombre es Aitor y tengo {edad} años"
+```
+
+En el placeholder {} pueden ir variables, operaciones, funciones...
+
+**Carácteres de escape**
+
+Podemos escapar ciertos carácteres con "\"
+
+
+|código             |Resultado                                  |
+|:-----------------:|:-----------------------------------------:|
+|\'                 |Comilla simple                             |
+|\ \                |Barra inversa                              |
+|\n                 |Salto de línea                             |
+|\r                 |Carriage return                            |
+|\t                 |Tabulación                                 |
+|\b                 |backspace                                  |
+|\f                 |Form feed                                  |
+|\ooo               |Valor Octal                                |
+|\xhh               |Valor Hexadecimal                          |
+
+### MÉTODOS STRING
+
+|Métodos                     |Descripción                                  |
+|:--------------------------:|:-------------------------------------------:|
+|capitalize()                |Convierte el primer carácter en mayúscula    ||casefold()                  |Convierte el string en minúscula             |
+|center()                    |Retorna un String centrado                   |
+|count()                     |Retorna el número de veces que un valor especifico se repite en un string|
+|encode()                    |Retorna una version encodeada del String     |
+|endswitch()                 |Retorna true si el String termina en un valor especifico|
+|expandtabs()                |Setea el tamaño de la tabulación en un String|
+|find()                      |Busca un valor especifico en el String y retorna su posición|
+|format()                    |Formatea valores especificos en un String    |
+|format_\map()               |Formate valores especificos de un String     |
+|index()                     |Lo mismo que find                            |
+|isalnum()                   |Retorna true si todos los carácteres son alfanúmericos|
+|isaplha()                   |Retorna true si todos son alfabeticos       | |isascii()                   |Retorna true si todos son ascii             | |isdecimal()                 |Retorna true si todos son decimales         |
+|isdigit()                   |Retorna true si todos son digitos           |
+|isidentifier()              |Retorna true si todos son identifier        |
+|islower()                   |Retorna true si todos son minúscula         |
+|isnumeric()                 |Retorna true si todos son numeric           |
+|isprintable()               |Retorna true si todos son printeables       |
+|isspace()                   |Retorna true si todos son espacios en blanco|
+|istitle()                   |Retorna true si el string sigue las relgas de un titulo|
+|isupper()                   |Retorna true si todos son mayúscula         |
+|join()                      |Une elementos de un iterable al final de un String|
+|ljust()                     |Retorna un string justificado a la izquierda |
+|lower()                     |Convierte un String en minúscula             |
+|lstrip()                    |Elimina carácteres vacios a la izquierda    |
+|maketrans()                 |Retorna una traslación de una tabla         |
+|partition()                 |Retorna una tupla donde el string es partido en tres partes|
+|replace()                   |Remplaza una parte de un string             |
+|split()                     |Divide el String según un separador         |
+|splitlines()                |Divide el string en el salto de linea y devuelve una lista|
+|startswith()                |Retorna true si el string empieza por un valorespecifico|
+|strip()                     |Retorna un string "trimeado"                |
+|swapcase()                  |Cambia de mayus a minus y viceversa         |
+|title()                     |Cambia el primer carácter de cada palabra a mayúscula|
+|translate()                 |Retorna un string trasnlated                |
+|upper()                     |Convierte un String a mayúscula             |
+|zfill()                     |Llena un string desde el inicio con un número especifico de ceros|
+
