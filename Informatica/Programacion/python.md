@@ -436,5 +436,5 @@ c = a + b
 print(c) # HelloWorld
 ```
 
-### FORMATE DE STRINGS
+### FORMATEO DE STRINGS
 
